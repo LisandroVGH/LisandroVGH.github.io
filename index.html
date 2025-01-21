@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lisandro Velazquez Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="outer-container">
+    <div class="content">
+      <h1>Lisandro Velazquez</h1>
+      <p>IT Technician</p>
+      <div class="circular-image-container">
+        <img src="images/LVprofilepic.jpg" alt="Circular Image" class="circular-image">
+      </div>
+    </div>
+    <div class= "vert-cent">
+    <div class="vertical-carousel">
+      <button class="arrow up" id="upArrow" onclick="moveCarousel(-1)">▲</button>
+      <div class="carousel-container">
+        <div class="carousel-items">
+          <a href="Resume.html" class="carousel-item">Resume
+            <img src="images/resume.png" alt="Circular Image" class="icon">
+          </a>
+          <a href="Projects.html" class="carousel-item">Projects
+            <img src="images/projectsicon.png" alt="Circular Image" class="icon">
+          </a>
+          <a href="Contact.html" class="carousel-item">Contact
+            <img src="images/contact.png" alt="Circular Image" class="icon">
+          </a>
+          <a href="https://github.com/MitchSorrenstein?tab=projects" class="carousel-item">GitHub
+            <img src="images/github.png" alt="Circular Image" class="icon">
+          </a>
+          <a href="https://www.linkedin.com/in/lisandro-velazquez-230388310/" class="carousel-item">LinkedIn
+            <img src="images/linkediconrsz.png" alt="Circular Image" class="icon">
+          </a>
+          <a href="Aboutme.html" class="carousel-item">About Me
+            <img src="images/aboutmeicon.png" alt="Circular Image" class="icon">
+          </a>
+        </div>
+      </div>
+      <button class="arrow down" id="downArrow" onclick="moveCarousel(1)">▼</button>
+    </div>
+  </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

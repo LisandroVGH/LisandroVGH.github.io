@@ -1,0 +1,431 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .content {
+    padding: 20px;
+    text-align: center;
+  }
+  
+/* Default styling for small screens */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color:rgba(25, 25, 159, 0.87);
+    background-image:
+    radial-gradient(at 85% 13%, hsla(245,81%,60%,1) 0px, transparent 50%),
+    radial-gradient(at 56% 74%, hsla(262,74%,47%,0.43) 0px, transparent 50%),
+    radial-gradient(at 42% 32%, hsla(275,100%,94%,1) 0px, transparent 50%),
+    radial-gradient(at 73% 88%, hsla(189,100%,56%,1) 0px, transparent 50%),
+    radial-gradient(at 1% 57%, rgb(69, 172, 236) 0px, transparent 50%);  
+    padding: 5% 8%; 
+    width: 84%
+}
+
+.content {
+    padding: 20px;
+    text-align: center;
+}
+
+.circular-image-container {
+    margin-top: 20px; /* Space between the text and image */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circular-image {
+    width: 200px; /* Set the size of the image */
+    height: 200px; /* Set the size of the image */
+    border-radius: 50%; /* Make the image circular */
+    border: 5px rgba(25, 25, 159, 0.87);
+    background-image:
+    radial-gradient(at 85% 13%, hsla(245,81%,60%,1) 0px, transparent 50%),
+    radial-gradient(at 56% 74%, hsla(262,74%,47%,0.43) 0px, transparent 50%),
+    radial-gradient(at 42% 32%, hsla(275,100%,94%,1) 0px, transparent 50%),
+    radial-gradient(at 73% 88%, hsla(189,100%,56%,1) 0px, transparent 50%),
+    radial-gradient(at 1% 57%, rgb(69, 172, 236) 0px, transparent 50%);   
+    padding: 5%;; /* Circular border around the image */
+    object-fit: cover; /* Ensure the image covers the area without distortion */
+}
+
+.vertical-carousel {
+    position: relative;
+    margin-top: 20px;
+    width: 200px;
+    height: 300px; /* Fixed height to display visible area */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(223, 255, 255);
+    border: 1px solid rgb(223, 255, 255);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.carousel-container {
+    flex: 1;
+    overflow: hidden;
+    width: 100%;
+}
+
+.carousel-items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.carousel-item {
+    font-size: 22px;
+    text-align: center;
+    width: 60%;
+    padding: 16px;
+    background: hsl(212, 71%, 70%);
+    color: black;
+    text-decoration: none;
+    border: 3px solid rgb(223, 255, 255);
+    font-weight: 700;
+    border-radius: 100px;
+    border-color: rgb(223, 255, 255);
+    transition: transform 0.3s ease; /* Smooth transition for scaling */
+}
+
+.carousel-item:hover {
+    background-color:rgba(11, 11, 92, 0.87);
+    background-image:
+    radial-gradient(at 85% 13%, rgb(28, 20, 110) 0px, transparent 50%),
+    radial-gradient(at 56% 74%, hsla(262,74%,47%,0.43) 0px, transparent 50%),
+    radial-gradient(at 42% 32%, rgb(177, 145, 201) 0px, transparent 50%),
+    radial-gradient(at 73% 88%, rgb(0, 181, 212) 0px, transparent 50%),
+    radial-gradient(at 1% 57%, rgb(36, 124, 179) 0px, transparent 50%);
+    transform: scale(1.2); /* Increase size by 20% */
+    color:white;
+}
+
+.resumecontent{ 
+    background-color:rgba(25, 25, 159, 0.87)
+    radial-gradient(at 85% 13%, hsla(245,81%,60%,1) 0px, transparent 50%),
+    radial-gradient(at 56% 74%, hsla(262,74%,47%,0.43) 0px, transparent 50%),
+    radial-gradient(at 42% 32%, hsla(275,100%,94%,1) 0px, transparent 50%),
+    radial-gradient(at 73% 88%, hsla(189,100%,56%,1) 0px, transparent 50%),
+    radial-gradient(at 1% 57%, rgb(69, 172, 236) 0px, transparent 50%);  
+    padding: 20px 20px; 
+    width: 100%
+}
+
+.Education {
+    background: rgb(62, 66, 86);
+    color:whitesmoke;
+    padding: 3%;
+    margin-bottom: 5%; 
+    border-top: 10px solid rgb(92, 96, 116);
+    border-right: 10px solid rgb(72, 76, 96);;
+    border-bottom: 10px solid rgb(52, 56, 76);
+    border-left: 10px solid rgb(82, 86, 106);
+    box-shadow: 10px 10px 10px 00px rgba(0, 0, 0, 0.5)
+}
+
+/* General reset for the button */
+.return-home {
+    position: fixed;       /* Fixes the button relative to the viewport */
+    top: 10px;             /* 10px from the top */
+    right: 10px;           /* 10px from the right */
+    width: 50px;           /* Width of the button */
+    height: 50px;          /* Height of the button */
+    background-color: rgb(102, 106, 126); /* Blue background color */
+    color: white;          /* White arrow color */
+    text-decoration: none; /* Removes underline from the link */
+    border: none;          /* No border */
+    border-radius: 50%;    /* Makes the button circular */
+    font-size: 24px;       /* Size of the arrow */
+    display: flex;         /* Flexbox for centering the arrow */
+    align-items: center;   /* Vertically centers the arrow */
+    justify-content: center; /* Horizontally centers the arrow */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
+}
+
+.ProfExp {
+    background: rgb(72, 76, 106);
+    color:whitesmoke;
+    padding: 3%;
+    margin-bottom: 5%; 
+    border-top: 10px solid rgb(92, 96, 116);
+    border-right: 10px solid rgb(72, 76, 96);;
+    border-bottom: 10px solid rgb(52, 56, 76);
+    border-left: 10px solid rgb(82, 86, 106);
+    box-shadow: 10px 10px 10px 00px rgba(0, 0, 0, 0.5)
+}
+.Certs {
+    background: rgb(62, 66, 86);
+    color:whitesmoke;
+    padding: 3%;
+    margin-bottom: 5%; 
+    border-top: 10px solid rgb(92, 96, 116);
+    border-right: 10px solid rgb(72, 76, 96);;
+    border-bottom: 10px solid rgb(52, 56, 76);
+    border-left: 10px solid rgb(82, 86, 106);
+    box-shadow: 10px 10px 10px 00px rgba(0, 0, 0, 0.5)
+}
+.Projects {
+    background: rgb(72, 76, 106);
+    color:whitesmoke;
+    padding: 3%;
+    border-top: 10px solid rgb(92, 96, 116);
+    border-right: 10px solid rgb(72, 76, 96);;
+    border-bottom: 10px solid rgb(52, 56, 76);
+    border-left: 10px solid rgb(82, 86, 106);
+    box-shadow: 10px 10px 10px 00px rgba(0, 0, 0, 0.5)
+}
+
+.arrow {
+    width: 100%;
+    background: #ddd;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.arrow:hover {
+    background: #bbb;
+}
+
+.icon {
+    height: 25px;
+    width: 25px;
+}
+
+.vert-cent {
+    display: flex; /* Enable flexbox */
+    flex-direction: column; /* Align items vertically */
+    justify-content: center; /* Center items vertically */
+    align-items: center; /* Center items horizontally */
+    width: 100%; /* Ensure it takes full width */
+}
+
+/* Media Query for larger screens */
+@media (min-width: 500px) {
+    .vertical-carousel {
+        height: auto; /* Allow carousel to expand based on content */
+        width: 400px; /* Increase width to display all items */
+    }
+
+    .carousel-container {
+        overflow: visible; /* Show all items */
+    }
+
+    .carousel-items {
+        flex-direction: column;
+        justify-content: flex-start; /* Align items to the top */
+        transform: none; /* Remove any transformation for scrolling */
+    }
+
+    .arrow {
+        display: none; /* Hide arrows for larger screens */
+    }
+}
+
+@media (max-width: 500px) {
+    .circular-image {
+    width: 100px;
+    height: 100px;
+     }
+    .vertical-carousel{
+    min-height: 326px;
+    }
+    .carousel-item {
+    font-size: 20px
+    }
+
+}
+
+.outer-container {
+    padding: 8% 10%;
+    background-color: rgb(223, 255, 255);
+    border-radius: 50px;
+}
+
+body.resume-page {
+    background-color: white;
+}
+
+/* Contact Styles*/
+
+.contactbody {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    padding: 2% 8% !important;
+}
+
+.contact-form {
+    background: #ffffff;
+    padding: 20px 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    width: 100%;
+}
+
+.contact-form h2 {
+    margin-bottom: 15px;
+    font-size: 1.5em;
+    text-align: center;
+    color: #333;
+}
+
+.contact-form label {
+    font-size: 1em;
+    margin-bottom: 5px;
+    display: block;
+    color: #333;
+}
+
+.contact-form input, 
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+.contact-form button {
+    margin: 0 36%;
+    background-color: hsl(212, 71%, 70%);
+    border: none;
+    color: black;
+    font-size: 1em;
+    border-radius: 4px;
+    cursor: pointer;
+    width:30%;
+    height: 10%;
+    padding: 10px 0 10px 0;
+}
+
+.contact-form button:hover {
+    background-color:rgba(11, 11, 92, 0.87);
+    background-image:
+    radial-gradient(at 85% 13%, rgb(28, 20, 110) 0px, transparent 50%),
+    radial-gradient(at 56% 74%, hsla(262,74%,47%,0.43) 0px, transparent 50%),
+    radial-gradient(at 42% 32%, rgb(177, 145, 201) 0px, transparent 50%),
+    radial-gradient(at 73% 88%, rgb(0, 181, 212) 0px, transparent 50%),
+    radial-gradient(at 1% 57%, rgb(36, 124, 179) 0px, transparent 50%);
+    transform: scale(1.2); /* Increase size by 20% */
+    color:white;
+}
+
+.am-carousel {
+    width: 80%;
+    max-width: 800px;
+    overflow: hidden;
+    position: relative;
+}
+
+.am-carousel-track {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.am-carousel-item {
+    min-width: calc(100% / 3);
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.am-carousel-item img {
+    width: 100%;
+    border-radius: 10px;
+    display: block;
+}
+
+.am-carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.am-carousel-button.left {
+    left: 10px;
+}
+
+.am-carousel-button.right {
+    right: 10px;
+}
+
+.am-carousel-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+.new-carousel {
+    width: 80%;
+    max-width: 800px;
+    overflow: hidden;
+    position: relative;
+}
+
+.new-carousel-track {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.new-carousel-item {
+    min-width: calc(100% / 3);
+    box-sizing: border-box;
+    padding: 10px;
+    height: 100px;
+    width: 100px;
+}
+
+.new-carousel-item img {
+    width: 100%;
+    border-radius: 10px;
+    display: block;
+}
+
+.new-carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.new-carousel-button.left {
+    left: 10px;
+}
+
+.new-carousel-button.right {
+    right: 10px;
+}
+
+.new-carousel-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}

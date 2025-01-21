@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lisandro Velazquez Projects</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="resumecontent">
+        <a href="/index.html" class="return-home" aria-label="Return to Home">←</a>
+      <div class="Education"> 
+        <h1>About Me</h1>
+      </div>
+        <div class="ProfExp">
+        <h1>Artwork</h1>
+        <h2>Paintings from Coursework</h2><h3> September 2016 - 2025</h3>
+            <p1>University of Massachusetts Boston | Boston, Massachusetts | 6 Studio Courses <br>
+              • <p4>Perpetuated Gaze<p4> - My first concentration illustrates the contrasting dynamic of regular customers versus trespassers <br>
+              • Purpose - to provide a fuller picture of the environment as a worker in contrast from the perspective a customer gets from the typical shopping experience <br>
+            </p1>
+        </div  >
+        <!--first conveyor-->
+        <div class="am-carousel">
+            <button class="am-carousel-button left">&#8249;</button>
+            <div class="am-carousel-track">
+                <div class="am-carousel-item"><img src="images/LVprofilepic.jpg" alt="Image 1"></div>
+                <div class="am-carousel-item"><img src="images/LVprofilepic.jpg" alt="Image 2"></div>
+                <div class="am-carousel-item"><img src="images/LVprofilepic.jpg" alt="Image 3"></div>
+                <div class="am-carousel-item"><img src="images/LVprofilepic.jpg" alt="Image 4"></div>
+                <div class="am-carousel-item"><img src="images/LVprofilepic.jpg" alt="Image 5"></div>
+            </div>
+            <button class="am-carousel-button right">&#8250;</button>
+            <script>
+                const track = document.querySelector('.am-carousel-track');
+                const leftButton = document.querySelector('.am-carousel-button.left');
+                const rightButton = document.querySelector('.am-carousel-button.right');
+        
+                const items = document.querySelectorAll('.am-carousel-item');
+                const visibleItems = 3;
+                const itemWidth = items[0].getBoundingClientRect().width;
+                let currentIndex = 0;
+        
+                function moveCarousel() {
+                    const translateX = -(currentIndex * itemWidth);
+                    track.style.transition = "transform 0.5s ease";
+                    track.style.transform = `translateX(${translateX}px)`;
+                }
+        
+                function wrapAround() {
+                    // If moving past the last item, wrap back to the start
+                    if (currentIndex >= items.length) {
+                        currentIndex = 0;
+                        track.style.transition = "none";
+                        track.style.transform = "translateX(0px)";
+                    }
+        
+                    // If moving before the first item, wrap to the end
+                    if (currentIndex < 0) {
+                        currentIndex = items.length - visibleItems;
+                        const translateX = -(currentIndex * itemWidth);
+                        track.style.transition = "none";
+                        track.style.transform = `translateX(${translateX}px)`;
+                    }
+                }
+        
+                leftButton.addEventListener('click', () => {
+                    currentIndex--;
+                    moveCarousel();
+                    setTimeout(wrapAround, 500); // Ensure smooth transition before wrapping
+                });
+        
+                rightButton.addEventListener('click', () => {
+                    currentIndex++;
+                    moveCarousel();
+                    setTimeout(wrapAround, 500); // Ensure smooth transition before wrapping
+                });
+            </script>
+        </div>
+        <div class="Certs">
+            <h1>Commission Work</h1>
+            <h2>Paintings from Commissions</h2><h3> September 2022 - 2025</h3>
+              • <p4>Local Library<p4> - commissioned for a BLM and Pride painting <br>
+              • Purpose - provide visibility of underrepresented marginalized groups' by portraying lived experiences of participating figure models <br>
+            </p1>
+        </div>
+
+        <div class="new-carousel">
+            <button class="new-carousel-button left">&#8249;</button>
+            <div class="new-carousel-track">
+                <div class="new-carousel-item"><img src="images/BLM.jpg" alt="Image 1"></div>
+                <div class="new-carousel-item"><img src="images/PRIDE1.jpg" alt="Image 2"></div>
+                <div class="new-carousel-item"><img src="images/PRIDE2.jpg" alt="Image 3"></div>
+                <div class="new-carousel-item"><img src="images/PRIDE3.jpg" alt="Image 4"></div>
+                <div class="new-carousel-item"><img src="images/PRIDE4.jpg" alt="Image 5"></div>
+            </div>
+            <button class="new-carousel-button right">&#8250;</button>
+        </div>
+    
+        <script>
+            const newTrack = document.querySelector('.new-carousel-track');
+            const newLeftButton = document.querySelector('.new-carousel-button.left');
+            const newRightButton = document.querySelector('.new-carousel-button.right');
+    
+            const newItems = document.querySelectorAll('.new-carousel-item');
+            const newVisibleItems = 3;
+            const newItemWidth = newItems[0].getBoundingClientRect().width;
+            let newCurrentIndex = 0;
+    
+            function moveNewCarousel() {
+                const translateX = -(newCurrentIndex * newItemWidth);
+                newTrack.style.transition = "transform 0.5s ease";
+                newTrack.style.transform = `translateX(${translateX}px)`;
+            }
+    
+            function wrapNewAround() {
+                // If moving past the last item, wrap back to the start
+                if (newCurrentIndex >= newItems.length) {
+                    newCurrentIndex = 0;
+                    newTrack.style.transition = "none";
+                    newTrack.style.transform = "translateX(0px)";
+                }
+    
+                // If moving before the first item, wrap to the end
+                if (newCurrentIndex < 0) {
+                    newCurrentIndex = newItems.length - newVisibleItems;
+                    const translateX = -(newCurrentIndex * newItemWidth);
+                    newTrack.style.transition = "none";
+                    newTrack.style.transform = `translateX(${translateX}px)`;
+                }
+            }
+    
+            newLeftButton.addEventListener('click', () => {
+                newCurrentIndex--;
+                moveNewCarousel();
+                setTimeout(wrapNewAround, 500); // Ensure smooth transition before wrapping
+            });
+    
+            newRightButton.addEventListener('click', () => {
+                newCurrentIndex++;
+                moveNewCarousel();
+                setTimeout(wrapNewAround, 500); // Ensure smooth transition before wrapping
+            });
+            
+        </script>
+
+        <div class="ProfExp">
+            <h1>Lego Collector</h1>
+            <h2>Free time hobby</h2>
+                <p1>In my free time I find joy in challenging myself by recreating some of my favorite props and scenes from shows, movies, videogames, and real life.</p1>
+                
+            </div  >
+        <!-- <div class="Projects">
+         <h1>Projects</h1>
+         <h2>Capstone Project – Password Manager Key Knight
+         </h2>
+         <p>• Designed and implemented a secure data collection system for user credential storage and retrieval, utilizing encryption algorithms and secure database infrastructure. <br>
+         • Conducted security audits to identify vulnerabilities and enhance system resilience against cyber threats. <br>
+         </p>
+        </div> -->
+    </div>
+</body>
+
+</html>
