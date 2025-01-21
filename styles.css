@@ -336,6 +336,7 @@ body.resume-page {
     max-width: 800px;
     overflow: hidden;
     position: relative;
+    margin: 0 auto; /* Center the carousel horizontally */
 }
 
 .am-carousel-track {
@@ -379,11 +380,18 @@ body.resume-page {
     opacity: 0.5;
     cursor: not-allowed;
 }
+
+.am-carousel, .new-carousel {
+    margin-bottom: 40px; /* Increase bottom margin to 40px */
+}
+
 .new-carousel {
     width: 80%;
     max-width: 800px;
     overflow: hidden;
     position: relative;
+    margin: 0 auto; /* Center the carousel horizontally */
+    margin-bottom: 20px; /* Add margin at the bottom to ensure visibility */
 }
 
 .new-carousel-track {
@@ -395,12 +403,13 @@ body.resume-page {
     min-width: calc(100% / 3);
     box-sizing: border-box;
     padding: 10px;
-    height: 100px;
-    width: 100px;
+    height: auto; /* Adjust height to match the first carousel */
+    width: 100%;
 }
 
 .new-carousel-item img {
     width: 100%;
+    height: auto; /* Ensure the image maintains aspect ratio */
     border-radius: 10px;
     display: block;
 }

@@ -24,11 +24,14 @@
         <div class="am-carousel">
             <button class="am-carousel-button left">&#8249;</button>
             <div class="am-carousel-track">
-                <div class="am-carousel-item"><img src="images/LVprofilepic.jpg" alt="Image 1"></div>
-                <div class="am-carousel-item"><img src="images/LVprofilepic.jpg" alt="Image 2"></div>
-                <div class="am-carousel-item"><img src="images/LVprofilepic.jpg" alt="Image 3"></div>
-                <div class="am-carousel-item"><img src="images/LVprofilepic.jpg" alt="Image 4"></div>
-                <div class="am-carousel-item"><img src="images/LVprofilepic.jpg" alt="Image 5"></div>
+                <div class="am-carousel-item"><img src="images/CUSTOMER1.JPG" alt="Image 1"></div>
+                <div class="am-carousel-item"><img src="images/EMPLOYEE1.JPG" alt="Image 2"></div>
+                <div class="am-carousel-item"><img src="images/CUSTOMER2.JPG" alt="Image 3"></div>
+                <div class="am-carousel-item"><img src="images/FIREDEP.JPG" alt="Image 4"></div>
+                <div class="am-carousel-item"><img src="images/THEIF1.JPG" alt="Image 5"></div>
+                <div class="am-carousel-item"><img src="images/THEIF2.JPG" alt="Image 6"></div>
+                <div class="am-carousel-item"><img src="images/THEIF3.JPG" alt="Image 7"></div>
+                <div class="am-carousel-item"><img src="images/THEIF4.JPG" alt="Image 8"></div>
             </div>
             <button class="am-carousel-button right">&#8250;</button>
             <script>
@@ -40,6 +43,9 @@
                 const visibleItems = 3;
                 const itemWidth = items[0].getBoundingClientRect().width;
                 let currentIndex = 0;
+                let clickCount = 0;
+                let lock = false;
+                let rightClickCount = 0;
         
                 function moveCarousel() {
                     const translateX = -(currentIndex * itemWidth);
@@ -64,17 +70,33 @@
                     }
                 }
         
-                leftButton.addEventListener('click', () => {
-                    currentIndex--;
+                function handleClick(direction) {
+                    if (lock) return;
+                    clickCount++;
+                    if (direction === 'right') {
+                        rightClickCount++;
+                    }
+                    if (clickCount >= 2) {
+                        lock = true;
+                        setTimeout(() => {
+                            lock = false;
+                            clickCount = 0;
+                        }, 2000); // Lock for 2 seconds
+                    }
+                    if (direction === 'left' && rightClickCount < 2) {
+                        return; // Lock left button unless right button has been clicked twice
+                    }
+                    if (direction === 'left') {
+                        currentIndex--;
+                    } else {
+                        currentIndex++;
+                    }
                     moveCarousel();
-                    setTimeout(wrapAround, 500); // Ensure smooth transition before wrapping
-                });
+                    setTimeout(wrapAround, 500);
+                }
         
-                rightButton.addEventListener('click', () => {
-                    currentIndex++;
-                    moveCarousel();
-                    setTimeout(wrapAround, 500); // Ensure smooth transition before wrapping
-                });
+                leftButton.addEventListener('click', () => handleClick('left'));
+                rightButton.addEventListener('click', () => handleClick('right'));
             </script>
         </div>
         <div class="Certs">
@@ -106,6 +128,9 @@
             const newVisibleItems = 3;
             const newItemWidth = newItems[0].getBoundingClientRect().width;
             let newCurrentIndex = 0;
+            let newClickCount = 0;
+            let newLock = false;
+            let newRightClickCount = 0;
     
             function moveNewCarousel() {
                 const translateX = -(newCurrentIndex * newItemWidth);
@@ -130,17 +155,33 @@
                 }
             }
     
-            newLeftButton.addEventListener('click', () => {
-                newCurrentIndex--;
+            function handleNewClick(direction) {
+                if (newLock) return;
+                newClickCount++;
+                if (direction === 'right') {
+                    newRightClickCount++;
+                }
+                if (newClickCount >= 2) {
+                    newLock = true;
+                    setTimeout(() => {
+                        newLock = false;
+                        newClickCount = 0;
+                    }, 2000); // Lock for 2 seconds
+                }
+                if (direction === 'left' && newRightClickCount < 2) {
+                    return; // Lock left button unless right button has been clicked twice
+                }
+                if (direction === 'left') {
+                    newCurrentIndex--;
+                } else {
+                    newCurrentIndex++;
+                }
                 moveNewCarousel();
                 setTimeout(wrapNewAround, 500); // Ensure smooth transition before wrapping
-            });
+            }
     
-            newRightButton.addEventListener('click', () => {
-                newCurrentIndex++;
-                moveNewCarousel();
-                setTimeout(wrapNewAround, 500); // Ensure smooth transition before wrapping
-            });
+            newLeftButton.addEventListener('click', () => handleNewClick('left'));
+            newRightButton.addEventListener('click', () => handleNewClick('right'));
             
         </script>
 
