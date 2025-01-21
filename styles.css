@@ -73,7 +73,7 @@ body {
 
 .carousel-container {
     flex: 1;
-    overflow: hidden;
+    overflow: auto; /* Allow scrolling to ensure visibility */
     width: 100%;
     display: flex;
     justify-content: center;
@@ -90,7 +90,7 @@ body {
 .carousel-item {
     font-size: 22px;
     text-align: center;
-    width: 60%;
+    width: 80%;
     padding: 16px;
     background: hsl(212, 71%, 70%);
     color: black;
@@ -191,16 +191,7 @@ body {
 }
 
 .arrow {
-    width: 100%;
-    background: #ddd;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    text-align: center;
-}
-
-.arrow:hover {
-    background: #bbb;
+    display: none; /* Hide arrows */
 }
 
 .icon {
@@ -243,8 +234,9 @@ body {
     width: 100px;
     height: 100px;
      }
-    .vertical-carousel{
-    min-height: 326px;
+    .vertical-carousel {
+        height: auto; /* Allow height to adjust based on content */
+        min-height: 326px;
     }
     .carousel-item {
     font-size: 20px
