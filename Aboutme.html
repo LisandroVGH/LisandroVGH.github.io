@@ -21,83 +21,85 @@
             </p1>
         </div  >
         <!--first conveyor-->
-        <div class="am-carousel">
-            <button class="am-carousel-button left">&#8249;</button>
-            <div class="am-carousel-track">
-                <div class="am-carousel-item"><img src="images/CUSTOMER1.JPG" alt="Image 1"></div>
-                <div class="am-carousel-item"><img src="images/EMPLOYEE1.JPG" alt="Image 2"></div>
-                <div class="am-carousel-item"><img src="images/CUSTOMER2.JPG" alt="Image 3"></div>
-                <div class="am-carousel-item"><img src="images/FIREDEP.JPG" alt="Image 4"></div>
-                <div class="am-carousel-item"><img src="images/THEIF1.JPG" alt="Image 5"></div>
-                <div class="am-carousel-item"><img src="images/THEIF2.JPG" alt="Image 6"></div>
-                <div class="am-carousel-item"><img src="images/THEIF3.JPG" alt="Image 7"></div>
-                <div class="am-carousel-item"><img src="images/THEIF4.JPG" alt="Image 8"></div>
-            </div>
-            <button class="am-carousel-button right">&#8250;</button>
-            <script>
-                const track = document.querySelector('.am-carousel-track');
-                const leftButton = document.querySelector('.am-carousel-button.left');
-                const rightButton = document.querySelector('.am-carousel-button.right');
-        
-                const items = document.querySelectorAll('.am-carousel-item');
-                const visibleItems = 3;
-                const itemWidth = items[0].getBoundingClientRect().width;
-                let currentIndex = 0;
-                let clickCount = 0;
-                let lock = false;
-                let rightClickCount = 0;
-        
-                function moveCarousel() {
-                    const translateX = -(currentIndex * itemWidth);
-                    track.style.transition = "transform 0.5s ease";
-                    track.style.transform = `translateX(${translateX}px)`;
-                }
-        
-                function wrapAround() {
-                    // If moving past the last item, wrap back to the start
-                    if (currentIndex >= items.length) {
-                        currentIndex = 0;
-                        track.style.transition = "none";
-                        track.style.transform = "translateX(0px)";
-                    }
-        
-                    // If moving before the first item, wrap to the end
-                    if (currentIndex < 0) {
-                        currentIndex = items.length - visibleItems;
+        <div class="carousel-container">
+            <div class="am-carousel">
+                <button class="am-carousel-button left">&#8249;</button>
+                <div class="am-carousel-track">
+                    <div class="am-carousel-item"><img src="images/CUSTOMER1.JPG" alt="Image 1"></div>
+                    <div class="am-carousel-item"><img src="images/EMPLOYEE1.JPG" alt="Image 2"></div>
+                    <div class="am-carousel-item"><img src="images/CUSTOMER2.JPG" alt="Image 3"></div>
+                    <div class="am-carousel-item"><img src="images/FIREDEP.JPG" alt="Image 4"></div>
+                    <div class="am-carousel-item"><img src="images/THEIF1.JPG" alt="Image 5"></div>
+                    <div class="am-carousel-item"><img src="images/THEIF2.JPG" alt="Image 6"></div>
+                    <div class="am-carousel-item"><img src="images/THEIF3.JPG" alt="Image 7"></div>
+                    <div class="am-carousel-item"><img src="images/THEIF4.JPG" alt="Image 8"></div>
+                </div>
+                <button class="am-carousel-button right">&#8250;</button>
+                <script>
+                    const track = document.querySelector('.am-carousel-track');
+                    const leftButton = document.querySelector('.am-carousel-button.left');
+                    const rightButton = document.querySelector('.am-carousel-button.right');
+            
+                    const items = document.querySelectorAll('.am-carousel-item');
+                    const visibleItems = 3;
+                    const itemWidth = items[0].getBoundingClientRect().width;
+                    let currentIndex = 0;
+                    let clickCount = 0;
+                    let lock = false;
+                    let rightClickCount = 0;
+            
+                    function moveCarousel() {
                         const translateX = -(currentIndex * itemWidth);
-                        track.style.transition = "none";
+                        track.style.transition = "transform 0.5s ease";
                         track.style.transform = `translateX(${translateX}px)`;
                     }
-                }
-        
-                function handleClick(direction) {
-                    if (lock) return;
-                    clickCount++;
-                    if (direction === 'right') {
-                        rightClickCount++;
+            
+                    function wrapAround() {
+                        // If moving past the last item, wrap back to the start
+                        if (currentIndex >= items.length) {
+                            currentIndex = 0;
+                            track.style.transition = "none";
+                            track.style.transform = "translateX(0px)";
+                        }
+            
+                        // If moving before the first item, wrap to the end
+                        if (currentIndex < 0) {
+                            currentIndex = items.length - visibleItems;
+                            const translateX = -(currentIndex * itemWidth);
+                            track.style.transition = "none";
+                            track.style.transform = `translateX(${translateX}px)`;
+                        }
                     }
-                    if (clickCount >= 2) {
-                        lock = true;
-                        setTimeout(() => {
-                            lock = false;
-                            clickCount = 0;
-                        }, 2000); // Lock for 2 seconds
+            
+                    function handleClick(direction) {
+                        if (lock) return;
+                        clickCount++;
+                        if (direction === 'right') {
+                            rightClickCount++;
+                        }
+                        if (clickCount >= 2) {
+                            lock = true;
+                            setTimeout(() => {
+                                lock = false;
+                                clickCount = 0;
+                            }, 2000); // Lock for 2 seconds
+                        }
+                        if (direction === 'left' && rightClickCount < 2) {
+                            return; // Lock left button unless right button has been clicked twice
+                        }
+                        if (direction === 'left') {
+                            currentIndex--;
+                        } else {
+                            currentIndex++;
+                        }
+                        moveCarousel();
+                        setTimeout(wrapAround, 500);
                     }
-                    if (direction === 'left' && rightClickCount < 2) {
-                        return; // Lock left button unless right button has been clicked twice
-                    }
-                    if (direction === 'left') {
-                        currentIndex--;
-                    } else {
-                        currentIndex++;
-                    }
-                    moveCarousel();
-                    setTimeout(wrapAround, 500);
-                }
-        
-                leftButton.addEventListener('click', () => handleClick('left'));
-                rightButton.addEventListener('click', () => handleClick('right'));
-            </script>
+            
+                    leftButton.addEventListener('click', () => handleClick('left'));
+                    rightButton.addEventListener('click', () => handleClick('right'));
+                </script>
+            </div>
         </div>
         <div class="Certs">
             <h1>Commission Work :D</h1>
@@ -107,16 +109,18 @@
             </p1>
         </div>
 
-        <div class="new-carousel">
-            <button class="new-carousel-button left">&#8249;</button>
-            <div class="new-carousel-track">
-                <div class="new-carousel-item"><img src="images/BLM.jpg" alt="Image 1"></div>
-                <div class="new-carousel-item"><img src="images/PRIDE1.jpg" alt="Image 2"></div>
-                <div class="new-carousel-item"><img src="images/PRIDE2.jpg" alt="Image 3"></div>
-                <div class="new-carousel-item"><img src="images/PRIDE3.jpg" alt="Image 4"></div>
-                <div class="new-carousel-item"><img src="images/PRIDE4.jpg" alt="Image 5"></div>
+        <div class="carousel-container">
+            <div class="new-carousel">
+                <button class="new-carousel-button left">&#8249;</button>
+                <div class="new-carousel-track">
+                    <div class="new-carousel-item"><img src="images/BLM.jpg" alt="Image 1"></div>
+                    <div class="new-carousel-item"><img src="images/PRIDE1.jpg" alt="Image 2"></div>
+                    <div class="new-carousel-item"><img src="images/PRIDE2.jpg" alt="Image 3"></div>
+                    <div class="new-carousel-item"><img src="images/PRIDE3.jpg" alt="Image 4"></div>
+                    <div class="new-carousel-item"><img src="images/PRIDE4.jpg" alt="Image 5"></div>
+                </div>
+                <button class="new-carousel-button right">&#8250;</button>
             </div>
-            <button class="new-carousel-button right">&#8250;</button>
         </div>
     
         <script>
