@@ -326,11 +326,14 @@ body.resume-page {
 }
 
 .am-carousel {
-    width: 80%;
-    max-width: 800px;
+    width: 90%;
+    max-width: 1200px;
     overflow: hidden;
     position: relative;
     margin: 0 auto; /* Center the carousel horizontally */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .am-carousel-track {
@@ -338,14 +341,30 @@ body.resume-page {
     transition: transform 0.5s ease;
 }
 
-.am-carousel-item, .new-carousel-item {
-    min-width: calc(100% / 1); /* Show one image at a time */
+.am-carousel-item {
+    min-width: 33.33%; /* Each image takes up one-third of the carousel width */
     box-sizing: border-box;
     padding: 10px;
-    height: 600px; /* Set a larger fixed height for all items */
+    height: 600px; /* Set a larger fixed height for side items */
+    opacity: 0.5;
+    transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-.am-carousel-item img, .new-carousel-item img {
+.am-carousel-item.center {
+    opacity: 1;
+    transform: scale(2.5); /* Scale up the center image significantly */
+    height: 600px; /* Ensure the height is the same as side items */
+    z-index: 1; /* Ensure the center image is on top */
+}
+
+.am-carousel-item.center img {
+    width: auto;
+    height: 100%; /* Ensure the image is not cropped */
+    max-width: 100%;
+    object-fit: contain; /* Ensure the image maintains its aspect ratio */
+}
+
+.am-carousel-item img {
     width: 100%;
     height: 100%; /* Ensure the image covers the area */
     object-fit: cover; /* Crop the image to fit */
@@ -355,26 +374,31 @@ body.resume-page {
 
 /* Media Query for smaller screens */
 @media (max-width: 768px) {
-    .am-carousel-item, .new-carousel-item {
-        height: 400px; /* Adjust height for smaller screens */
+    .am-carousel-item {
+        display: none; /* Hide all items */
+    }
+
+    .am-carousel-item.center {
+        display: block; /* Show only the center item */
+        height: 500px; /* Adjust height for smaller screens */
     }
 }
 
 @media (max-width: 480px) {
-    .am-carousel-item, .new-carousel-item {
-        height: 300px; /* Adjust height for smaller screens */
+    .am-carousel-item.center {
+        height: 400px; /* Adjust height for smaller screens */
     }
 }
 
 @media (max-width: 375px) {
-    .am-carousel-item, .new-carousel-item {
-        height: 250px; /* Adjust height for iPhone SE and similar devices */
+    .am-carousel-item.center {
+        height: 300px; /* Adjust height for iPhone SE and similar devices */
     }
 }
 
 @media (max-width: 320px) {
-    .am-carousel-item, .new-carousel-item {
-        height: 200px; /* Adjust height for smaller Android phones */
+    .am-carousel-item.center {
+        height: 250px; /* Adjust height for smaller Android phones */
     }
 }
 
